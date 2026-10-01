@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Esqueleto canino en realidad aumentada</title>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+<style>
+  html,body{margin:0;height:100%;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#e8eeed;color:#12262b}
+  header{padding:14px 16px}
+  h1{margin:0;font-size:1.25rem}
+  p{margin:4px 0 0;font-size:.92rem;color:#506569}
+  model-viewer{width:100%;height:calc(100% - 92px);background:#dde7e5;--poster-color:transparent}
+  .ar-btn{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);padding:12px 20px;border:0;border-radius:10px;background:#0a7c78;color:#fff;font:600 1rem system-ui,sans-serif}
+  .hotspot{display:block;border:0;border-radius:6px;padding:4px 8px;background:#fff;color:#12262b;font:600 12px system-ui,sans-serif;box-shadow:0 1px 4px rgba(0,0,0,.35);white-space:nowrap}
+</style>
+</head>
+<body>
+<header>
+  <h1>Esqueleto canino</h1>
+  <p>Gira con el dedo. Toca "Ver en mi espacio" para colocarlo frente a ti.</p>
+</header>
+
+<!-- Este archivo y osteologia-canina.glb deben estar en la misma carpeta y servirse por https. -->
+<model-viewer
+  src="osteologia-canina.glb"
+  alt="Esqueleto esquemático de un perro en 3D"
+  ar
+  ar-modes="webxr scene-viewer quick-look"
+  ar-scale="fixed"
+  camera-controls
+  touch-action="pan-y"
+  camera-orbit="75deg 80deg auto"
+  shadow-intensity="0.6">
+
+  <button slot="ar-button" class="ar-btn">Ver en mi espacio</button>
+
+  <button class="hotspot" slot="hotspot-craneo"   data-position="0.031 0.41 0.36"   data-normal="1 0 0">Cráneo</button>
+  <button class="hotspot" slot="hotspot-escapula" data-position="0.094 0.36 0.127"  data-normal="1 0 0">Escápula</button>
+  <button class="hotspot" slot="hotspot-humero"   data-position="0.09 0.24 0.088"   data-normal="1 0 0">Húmero</button>
+  <button class="hotspot" slot="hotspot-costillas" data-position="0.098 0.30 0.027" data-normal="1 0 0">Costillas</button>
+  <button class="hotspot" slot="hotspot-pelvis"   data-position="0.081 0.362 -0.287" data-normal="1 0 0">Pelvis</button>
+  <button class="hotspot" slot="hotspot-femur"    data-position="0.095 0.27 -0.272"  data-normal="1 0 0">Fémur</button>
+  <button class="hotspot" slot="hotspot-tibia"    data-position="0.091 0.151 -0.295" data-normal="1 0 0">Tibia</button>
+</model-viewer>
+</body>
+</html>
